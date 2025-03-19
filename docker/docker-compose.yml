@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  dev:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.dev
+    volumes:
+      - ../:/app
+      - pnpm-store:/pnpm
+    working_dir: /app
+    command: sh -c "pnpm install && pnpm dev"
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "3000:3000" # For development server if needed
+
+volumes:
+  pnpm-store: 
