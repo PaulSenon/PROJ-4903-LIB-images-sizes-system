@@ -1,14 +1,14 @@
 import { describe, it, expect } from 'vitest';
 import { SizesBuilderImpl } from './sizes-builder';
-import { BreakpointRecord } from './types';
+import { createBreakpointRecord } from './sizes-system';
 
 describe('SizesBuilder', () => {
-  const breakpoints: BreakpointRecord = {
+  const breakpoints = createBreakpointRecord({
     sm: 640,
     md: 768,
     lg: 1024,
     xl: 1280,
-  };
+  });
 
   describe('test without parent', () => {
     it('empty builder defaults to 100vw', () => {

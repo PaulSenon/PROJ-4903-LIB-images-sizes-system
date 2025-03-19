@@ -1,14 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { BreakpointRecord } from './types';
-import { createImageSizesSystem } from './sizes-system';
+import { createBreakpointRecord, createImageSizesSystem } from './sizes-system';
 
 describe('SizesSystem', () => {
-  const breakpoints: BreakpointRecord = {
+  const breakpoints = createBreakpointRecord({
     sm: 640,
     md: 768,
     lg: 1024,
     xl: 1280,
-  };
+  });
 
   it('basic usage', () => {
     const sisesSystem = createImageSizesSystem(breakpoints);
