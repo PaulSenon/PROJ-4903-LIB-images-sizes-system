@@ -33,18 +33,25 @@ jobs:
           echo "Minor: ${{ steps.release.outputs.minor }}"
           echo "Patch: ${{ steps.release.outputs.patch }}"
 
-  # Add a job to trigger the publish workflow when a release is created
   trigger-publish:
     needs: release-please
     if: ${{ needs.release-please.outputs.release_created }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.release-please.outputs.tag_name }}
-
       - name: Trigger publish workflow
-        run: |
-          echo "Release was created, tag name is ${{ needs.release-please.outputs.tag_name }}"
-          echo "This should trigger the publish workflow automatically"
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const tag = '${{ needs.release-please.outputs.tag_name }}';
+            console.log(`Triggering publish workflow with tag: ${tag}`);
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'publish.yml',
+              ref: 'main',
+              inputs: {
+                tag_name: tag
+              }
+            });
