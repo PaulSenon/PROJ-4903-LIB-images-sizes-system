@@ -8,6 +8,8 @@ services:
     volumes:
       - ../:/app
       - pnpm-store:/pnpm
+      - ~/.gitconfig:/etc/gitconfig:ro
+      - ~/.ssh:/root/.ssh:ro
     working_dir: /app
     command: sh -c "pnpm install && pnpm dev"
     environment:
