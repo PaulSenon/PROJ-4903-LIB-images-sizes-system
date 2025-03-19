@@ -14,8 +14,8 @@ services:
     command: sh -c "pnpm install && pnpm dev"
     environment:
       - NODE_ENV=development
-    ports:
-      - "3000:3000" # For development server if needed
+    # ports:
+    #   - "3000:3000" # For development server if needed
 
 volumes:
   pnpm-store: 
