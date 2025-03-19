@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.3](https://github.com/PaulSenon/PROJ-4903-LIB-images-sizes-system/compare/v1.3.2...v1.3.3) (2025-03-19)
+
+
+### Bug Fixes
+
+* fix ci and retrigger build ([de888a5](https://github.com/PaulSenon/PROJ-4903-LIB-images-sizes-system/commit/de888a5e5dbb3a0690d31f1f8a5aab7525f82650))
+
 ## [1.3.2](https://github.com/PaulSenon/PROJ-4903-LIB-images-sizes-system/compare/v1.3.1...v1.3.2) (2025-03-19)
 
 
