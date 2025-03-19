@@ -1,9 +1,13 @@
 {
   "name": "@senon/image-sizes",
-  "version": "1.2.0",
+  "version": "0.0.1",
   "description": "A type-safe library for generating HTML image sizes attributes",
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulSenon/PROJ-4903-LIB-images-sizes-system"
+  },
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

@@ -28,3 +28,14 @@ jobs:
               {"type":"perf","section":"Performance Improvements","hidden":false},
               {"type":"refactor","section":"Code Refactoring","hidden":false}
             ]
+
+      - name: Debug release output
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          echo "Release created: ${{ steps.release.outputs.release_created }}"
+          echo "Upload URL: ${{ steps.release.outputs.upload_url }}"
+          echo "HTML URL: ${{ steps.release.outputs.html_url }}"
+          echo "Tag name: ${{ steps.release.outputs.tag_name }}"
+          echo "Major: ${{ steps.release.outputs.major }}"
+          echo "Minor: ${{ steps.release.outputs.minor }}"
+          echo "Patch: ${{ steps.release.outputs.patch }}"
