@@ -32,7 +32,7 @@ export interface ParsedSize {
  * Combined builder interface - represents the full API
  */
 export interface SizesBuilder<BP extends BreakpointRecord> {
-  at<K extends keyof BP>(breakpoint: K, size: SizeValue): SizesBuilder<Omit<BP, K>>;
-  max(size: SizeValue): Omit<SizesBuilder<BP>, 'max' | 'at'>;
+  at<K extends keyof BP>(breakpoint: K, size: SizeValue): SizesBuilder<BP>;
+  max(size: SizeValue): SizesBuilder<BP>;
   toString(): string;
 }

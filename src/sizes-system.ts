@@ -13,6 +13,10 @@ export class ImageSizesSystem<BP extends BreakpointRecord> {
   }
 }
 
-export function createImageSizesSystem<BP extends BreakpointRecord>(breakpoints: BP) {
+export function createImageSizesSystem<const BP extends BreakpointRecord>(breakpoints: BP) {
   return new ImageSizesSystem(breakpoints);
+}
+
+export function createBreakpointRecord<const BP extends BreakpointRecord>(breakpoints: BP): BP {
+  return breakpoints;
 }

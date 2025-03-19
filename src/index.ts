@@ -1,5 +1,5 @@
-import { createImageSizesSystem } from './sizes-system';
-import { BreakpointRecord, SizeValue } from './types';
+import { createBreakpointRecord, createImageSizesSystem } from './sizes-system';
+import { BreakpointRecord, SizeValue, ParsedSize, Percentage, Pixels, SizesBuilder } from './types';
 
-export { createImageSizesSystem };
-export type { BreakpointRecord, SizeValue };
+export { createBreakpointRecord, createImageSizesSystem };
+export type { BreakpointRecord, SizeValue, ParsedSize, Percentage, Pixels, SizesBuilder };

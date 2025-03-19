@@ -1,25 +1,25 @@
 import { BreakpointRecord, SizesBuilder, SizeValue, Percentage, Pixels } from './types';
 
-type SizesEntryAbsolute = {
+export type SizesEntryAbsolute = {
   type: 'absolute';
   value: number;
 };
-type SizesEntryRelative = {
+export type SizesEntryRelative = {
   type: 'relative';
   value: number;
 };
 
-type SizesEntry = SizesEntryAbsolute | SizesEntryRelative;
-type SizesRecordBase = {
+export type SizesEntry = SizesEntryAbsolute | SizesEntryRelative;
+export type SizesRecordBase = {
   max: SizesEntry;
 };
-type SizesRecord<BP extends BreakpointRecord> = SizesRecordBase & {
+export type SizesRecord<BP extends BreakpointRecord> = SizesRecordBase & {
   [key in keyof BP]?: SizesEntry;
 };
 
 const DEFAULT_MAX_SIZE: SizesEntry = { type: 'relative', value: 100 };
 
-type SizesBuilderParams<BP extends BreakpointRecord> = {
+export type SizesBuilderParams<BP extends BreakpointRecord> = {
   breakpoints: BP;
   parent?: Partial<SizesBuilderImpl<BP>>;
 };
@@ -36,14 +36,14 @@ export class SizesBuilderImpl<BP extends BreakpointRecord> implements SizesBuild
     this.breakpointsAscendingKeyOrdered = getBreakpointAscendingKeyOrderedRecord(breakpoints);
   }
 
-  at<K extends keyof BP>(breakpoint: K, size: SizeValue): SizesBuilder<Omit<BP, K>> {
+  at<K extends keyof BP>(breakpoint: K, size: SizeValue): SizesBuilder<BP> {
     const sizesEntry = parseSizeValue(size);
     // weird type issue... TODO: fix
     this.sizes[breakpoint] = sizesEntry as SizesRecord<BP>[K];
     return this;
   }
 
-  max(size: SizeValue): Omit<SizesBuilder<BP>, 'max' | 'at'> {
+  max(size: SizeValue): SizesBuilder<BP> {
     const sizesEntry = parseSizeValue(size);
     this.sizes.max = sizesEntry;
     return this;
