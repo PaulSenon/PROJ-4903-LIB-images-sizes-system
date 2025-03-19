@@ -368,13 +368,13 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 
 Common commit types:
 
-- `feat`: A new feature (triggers a minor version bump)
-- `fix`: A bug fix (triggers a patch version bump)
-- `docs`: Documentation changes
-- `style`: Code style changes (formatting, etc.)
-- `refactor`: Code changes that neither fix bugs nor add features
-- `test`: Adding or updating tests
-- `chore`: Changes to the build process or auxiliary tools
+* `feat`: A new feature (triggers a minor version bump)
+* `fix`: A bug fix (triggers a patch version bump)
+* `docs`: Documentation changes
+* `style`: Code style changes (formatting, etc.)
+* `refactor`: Code changes that neither fix bugs nor add features
+* `test`: Adding or updating tests
+* `chore`: Changes to the build process or auxiliary tools
 
 Adding `BREAKING CHANGE:` to the footer of your commit message will trigger a major version bump when the PR is merged.
 
