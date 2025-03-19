@@ -1,5 +1,5 @@
 {
-  "name": "image-sizes",
+  "name": "@senon/image-sizes",
   "version": "1.1.0",
   "description": "A type-safe library for generating HTML image sizes attributes",
   "author": "",
